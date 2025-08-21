@@ -7,6 +7,9 @@
 body {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
+  background-color: #f5f0f0;
+  color:rgba(0,0,0.9)
+  
 }
 
 header .top-strip {
@@ -14,7 +17,7 @@ header .top-strip {
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 .container {
-    width: 90%;
+    width: 95%;
     margin: auto;
 }
 
@@ -24,4 +27,14 @@ header .top-strip {
 
 .MuiBadge-badge {
     background-color: #ff5252 !important;
+}
+
+
+
+nav ul button {
+    text-transform: capitalize !important;
+}
+
+nav ul button:hover{
+    background-color: none !important;
 }

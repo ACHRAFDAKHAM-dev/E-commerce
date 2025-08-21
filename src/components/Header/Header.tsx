@@ -8,6 +8,7 @@ import { IoGitCompareOutline } from "react-icons/io5";
 import { FaRegHeart } from "react-icons/fa6";
 import Tooltip from '@mui/material/Tooltip';
 import Search from "../../Search/Search";
+import Navbar from "./Navbar/Navbar";
 
 
 
@@ -27,7 +28,7 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
 
 function Header(){
     return (
-                <header>
+                <header className="bg-white">
                 <div className="top-strip py-2 border-t-[1px] border-gray-250 border-b-[1px]">
                     <div className="container">
                         <div className="flex items-center justify-between">
@@ -49,10 +50,12 @@ function Header(){
                         </div>
                     </div>
                 </div>
-                <div className="header py-3">
+                <div className="header py-4 border-b-[1px] border-gray-250">
                     <div className="container flex items-center justify-between">
                         <div className="col1 w-[35%]">
-                            <Link to={'/'}><img src="" alt="" /></Link>
+                            <Link to={'/'}>
+                             <h1 className="text-[29px] font-[900] text-primary-color pl-10">STRIP</h1>
+                            </Link>
                         </div>
                         <div className="col2 w-[45%]">
                             <Search/>
@@ -104,6 +107,8 @@ function Header(){
                         </div>
                     </div>
                 </div>
+
+                <Navbar/>
             </header>
     );
 }

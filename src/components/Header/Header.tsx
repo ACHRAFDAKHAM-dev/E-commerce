@@ -54,7 +54,7 @@ function Header(){
                     <div className="container flex items-center justify-between">
                         <div className="col1 w-[35%]">
                             <Link to={'/'}>
-                             <h1 className="text-[29px] font-[900] text-primary-color pl-10">STRIP</h1>
+                             <h1 className="text-[29px] font-[900] text-primary-color pl-10">AMAZON</h1>
                             </Link>
                         </div>
                         <div className="col2 w-[45%]">

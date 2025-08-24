@@ -9,6 +9,7 @@
 
 .nav li .submenu {
     visibility: hidden;
+    z-index: 100000;
 }
 
 .nav li .submenu button {

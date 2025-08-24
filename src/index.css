@@ -8,8 +8,8 @@ body {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   background-color: #f5f0f0;
-  color:rgba(0,0,0.9)
-  
+  color:rgba(0,0,0.9);
+  overflow-x: hidden;
 }
 
 header .top-strip {
@@ -39,3 +39,6 @@ nav ul button:hover{
     background-color: none !important;
 }
 
+.sliderHome {
+    overflow: inherit !important;
+}

@@ -1,10 +1,11 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "./HomeSlider.css"; 
+
 
 const HomeSlider: React.FC = () => {
   return (
@@ -12,7 +13,8 @@ const HomeSlider: React.FC = () => {
         <div  className="container">
             <Swiper
                 spaceBetween ={10}
-                modules={[Navigation]}
+                autoplay={{delay:2500,disableOnInteraction:false}}
+                modules={[Navigation, Autoplay]}
                 navigation
                 className="sliderHome custom-swiper"
             >
@@ -22,6 +24,7 @@ const HomeSlider: React.FC = () => {
                             alt="banner" 
                             className="w-full" 
                             />
+                        
                    </div>
                 </SwiperSlide>
                 <SwiperSlide>
@@ -41,8 +44,6 @@ const HomeSlider: React.FC = () => {
                             />
                    </div>
                 </SwiperSlide>
-                <SwiperSlide>Slide 4</SwiperSlide>
-                <SwiperSlide>Slide 5</SwiperSlide>
             </Swiper>
         </div>
     </div>

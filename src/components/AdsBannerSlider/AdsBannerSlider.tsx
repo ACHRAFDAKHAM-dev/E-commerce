@@ -39,7 +39,7 @@ const AdsBannerSlider: React.FC<Props> = (props: Props) => {
     },
   ];
   return (
-    <div className="py-5 w-full">
+    <div className="py-12 w-full">
       <Swiper
         slidesPerView={props.items}
         spaceBetween={10}

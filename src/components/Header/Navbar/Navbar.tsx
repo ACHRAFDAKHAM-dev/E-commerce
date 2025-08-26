@@ -6,7 +6,6 @@ import { Link, Link as RouterLink } from "react-router-dom";
 import { GoRocket } from "react-icons/go";
 import CategoryPanel from "./CategoryPanel";
 
-
 interface CategoryItem {
   id: number;
   category: string;
@@ -14,36 +13,35 @@ interface CategoryItem {
 
 type CategoryGroup = CategoryItem[];
 
-
 const Submenu: React.FC<{ items: CategoryItem[] }> = ({ items }) => {
   return (
     <div className="submenu absolute top-[120%] left-0 min-w-[150px] bg-white shadow-md rounded-md opacity-0 invisible translate-y-2 transition-all duration-200 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 z-20">
       <ul>
         {items.map((cat) => (
           <li className="list-none w-full" key={cat.id}>
-            <Link to={'/'} className="w-full">
-            <Button
-              component={RouterLink}
-              to="/"
-              className="w-full !justify-start !rounded-none !normal-case !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]"
-            >
-              {cat.category}
-            </Button>
-                <div className="submenu absolute top-[0%] left-[100%] min-w-[150px] bg-white shadow-md rounded-md opacity-0 invisible translate-y-2 transition-all duration-200 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 z-20">
-                  <ul>
-                    {items.map((cat) => (
-                      <li className="list-none w-full relative" key={cat.id}>
-                        <Button
-                          component={RouterLink}
-                          to="/"
-                          className="w-full !justify-start !rounded-none !normal-case !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]"
-                        >
-                          {cat.category}
-                        </Button>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            <Link to={"/"} className="w-full">
+              <Button
+                component={RouterLink}
+                to="/"
+                className="w-full !justify-start !rounded-none !normal-case !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]"
+              >
+                {cat.category}
+              </Button>
+              <div className="submenu absolute top-[0%] left-[100%] min-w-[150px] bg-white shadow-md rounded-md opacity-0 invisible translate-y-2 transition-all duration-200 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 z-20">
+                <ul>
+                  {items.map((cat) => (
+                    <li className="list-none w-full relative" key={cat.id}>
+                      <Button
+                        component={RouterLink}
+                        to="/"
+                        className="w-full !justify-start !rounded-none !normal-case !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]"
+                      >
+                        {cat.category}
+                      </Button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </Link>
           </li>
         ))}
@@ -53,8 +51,8 @@ const Submenu: React.FC<{ items: CategoryItem[] }> = ({ items }) => {
 };
 
 const Navbar: React.FC = () => {
-  const [isOpenCategoryPanel, setIsOpenCategoryPanel] = useState<boolean>(false);
-
+  const [isOpenCategoryPanel, setIsOpenCategoryPanel] =
+    useState<boolean>(false);
 
   const Categories: CategoryGroup[] = [
     [
@@ -75,9 +73,8 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <nav className="py-2">
+      <nav>
         <div className="container flex items-center justify-end gap-8">
-     
           <div className="col_1 w-[20%]">
             <Button
               className="!text-black gap-2 w-full flex items-center justify-start !normal-case"
@@ -89,108 +86,150 @@ const Navbar: React.FC = () => {
             </Button>
           </div>
 
-         
           <div className="col_2 w-[60%]">
             <ul className="flex items-center gap-2 nav">
               {/* Home */}
               <li className="list-none relative">
-                <Button
-                  component={RouterLink}
-                  to="/"
-                  className="link transition !normal-case !text-black !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]"
+                <Link
+                  to={"/"}
+                  className="link transition font-[500] text-[14px]"
                 >
-                  Home
-                </Button>
+                  <Button
+                    component={RouterLink}
+                    to="/"
+                    className="link transition !normal-case hover:!bg-transparent !text-black hover:!shadow-none !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252] !py-4 !text-[14px] "
+                  >
+                    Home
+                  </Button>
+                </Link>
               </li>
 
               {/* Fashion + Submenu */}
               <li className="list-none relative group">
-                <Button
-                  component={RouterLink}
-                  to="/"
-                  className="link transition !normal-case !text-black !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]"
+                <Link
+                  to={"/"}
+                  className="link transition font-[500] text-[14px]"
                 >
-                  Fashion
-                </Button>
+                  <Button
+                    component={RouterLink}
+                    to="/"
+                    className="link transition !normal-case !text-black !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252] !py-4 hover:!bg-transparent hover:!shadow-none !text-[14px] "
+                  >
+                    Fashion
+                  </Button>
+                </Link>
                 <Submenu items={Categories[0]} />
               </li>
 
               {/* Electronics + Submenu */}
               <li className="list-none relative group">
-                <Button
-                  component={RouterLink}
-                  to="/"
-                  className="link transition !normal-case !text-black !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]"
+                <Link
+                  to={"/"}
+                  className="link transition font-[500] text-[14px]"
                 >
-                  Electronics
-                </Button>
+                  <Button
+                    component={RouterLink}
+                    to="/"
+                    className="link transition !normal-case !text-black !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252] !py-4 hover:!bg-transparent hover:!shadow-none !text-[14px] "
+                  >
+                    Electronics
+                  </Button>
+                </Link>
                 <Submenu items={Categories[1]} />
               </li>
 
-              
               <li className="list-none">
-                <Button
-                  component={RouterLink}
-                  to="/"
-                  className="link transition !normal-case !text-black !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]"
+                <Link
+                  to={"/"}
+                  className="link transition font-[500] text-[14px]"
                 >
-                  Bags
-                </Button>
+                  <Button
+                    component={RouterLink}
+                    to="/"
+                    className="link transition !normal-case !text-black !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252] !py-4 hover:!bg-transparent hover:!shadow-none !text-[14px] "
+                  >
+                    Bags
+                  </Button>
+                </Link>
               </li>
 
               <li className="list-none">
-                <Button
-                  component={RouterLink}
-                  to="/"
-                  className="link transition !normal-case !text-black !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]"
+                <Link
+                  to={"/"}
+                  className="link transition font-[500] text-[14px]"
                 >
-                  Footwear
-                </Button>
+                  <Button
+                    component={RouterLink}
+                    to="/"
+                    className="link transition !normal-case !text-black !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252] !py-4 hover:!bg-transparent hover:!shadow-none !text-[14px] "
+                  >
+                    Footwear
+                  </Button>
+                </Link>
               </li>
 
               <li className="list-none">
-                <Button
-                  component={RouterLink}
-                  to="/"
-                  className="link transition !normal-case !text-black !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]"
+                <Link
+                  to={"/"}
+                  className="link transition font-[500] text-[14px]"
                 >
-                  Groceries
-                </Button>
+                  <Button
+                    component={RouterLink}
+                    to="/"
+                    className="link transition !normal-case !text-black !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252] !py-4 hover:!bg-transparent hover:!shadow-none !text-[14px] "
+                  >
+                    Groceries
+                  </Button>
+                </Link>
               </li>
 
               <li className="list-none">
-                <Button
-                  component={RouterLink}
-                  to="/"
-                  className="link transition !normal-case !text-black !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]"
+                <Link
+                  to={"/"}
+                  className="link transition font-[500] text-[14px]"
                 >
-                  Beauty
-                </Button>
+                  <Button
+                    component={RouterLink}
+                    to="/"
+                    className="link transition !normal-case !text-black !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252] !py-4 hover:!bg-transparent hover:!shadow-none !text-[14px] "
+                  >
+                    Beauty
+                  </Button>
+                </Link>
               </li>
 
               <li className="list-none">
-                <Button
-                  component={RouterLink}
-                  to="/"
-                  className="link transition !normal-case !text-black !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]"
+                <Link
+                  to={"/"}
+                  className="link transition font-[500] text-[14px]"
                 >
-                  wellness
-                </Button>
+                  <Button
+                    component={RouterLink}
+                    to="/"
+                    className="link transition !normal-case !text-black !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252] !py-4 hover:!bg-transparent hover:!shadow-none !text-[14px] "
+                  >
+                    wellness
+                  </Button>
+                </Link>
               </li>
 
               <li className="list-none">
-                <Button
-                  component={RouterLink}
-                  to="/"
-                  className="link transition !normal-case !text-black !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]"
+                <Link
+                  to={"/"}
+                  className="link transition font-[500] text-[14px]"
                 >
-                  Jewellery
-                </Button>
+                  <Button
+                    component={RouterLink}
+                    to="/"
+                    className="link transition !text-[14px] !normal-case !text-black !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252] !py-4 hover:!bg-transparent hover:!shadow-none"
+                  >
+                    Jewellery
+                  </Button>
+                </Link>
               </li>
             </ul>
           </div>
 
-      
           <div className="col_3 w-[20%]">
             <p className="text-[15px] font-[500] flex items-center gap-3 mb-0 mt-0">
               <GoRocket className="text-[18px]" />

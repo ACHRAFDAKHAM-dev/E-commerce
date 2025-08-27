@@ -1,6 +1,7 @@
 import React from "react";
 import { LiaShippingFastSolid } from "react-icons/lia";
 import AdsBannerSlider from "../AdsBannerSlider/AdsBannerSlider";
+import OfferBannerSlider from "../OfferBannerSlider/OfferBannerSlider";
 
 
 

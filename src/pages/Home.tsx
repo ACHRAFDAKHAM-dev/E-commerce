@@ -1,77 +1,104 @@
-
-import AdsBannerSlider from "../components/AdsBannerSlider/AdsBannerSlider";
-import CategoriesTabs from "../components/CategoriesTabs/CategoriesTabs";
-import CatSlider from "../components/CatSlider/CatSlider";
-import FreeShipping from "../components/FreeShipping/FreeShipping";
-import HomeSlider from "../components/HomeSlider/HomeSlider";
-import ProductsSlider from "../components/ProductsSlider/ProductsSlider";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { Link } from "react-router-dom";
 
+import HomeSlider from "../components/HomeSlider/HomeSlider";
+import CatSlider from "../components/CatSlider/CatSlider";
+import CategoriesTabs from "../components/CategoriesTabs/CategoriesTabs";
+import OfferSlider from "../components/OfferSlider/OfferSlider";
+import OfferBannerSlider from "../components/OfferBannerSlider/OfferBannerSlider";
+import FreeShipping from "../components/FreeShipping/FreeShipping";
+import ProductsSlider from "../components/ProductsSlider/ProductsSlider";
+import AdsBannerSlider from "../components/AdsBannerSlider/AdsBannerSlider";
+import BlogItem from "../components/BlogItem/BlogItem";
+import Footer from "../components/Footer/Footer";
+
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import BlogItem from "../components/BlogItem/BlogItem";
 
 const Home: React.FC = () => {
-  
-
   return (
     <>
+      {/* ===== Hero Slider ===== */}
       <HomeSlider />
+
+      {/* ===== Categories Section ===== */}
       <CatSlider />
-      <CategoriesTabs/>
-      <FreeShipping/>
+      <CategoriesTabs />
 
-      <section className="py-2 bg-white">
-        <div className="container">
-          <h2 className="text-[20px] font-[600]">Latest Products</h2>
-          <ProductsSlider items={6} />
-        </div>
-        
-       <div className="container">
-          <AdsBannerSlider items={4}/>
-        </div>
-      </section>
-      <section className="py-2 bg-white">
-        <div className="container">
-          <h2 className="text-[20px] font-[600]">Featured Products</h2>
-          <ProductsSlider items={6} />
-        </div>
-        <div className="container">
-          <AdsBannerSlider items={2}/>
-        </div>
-      
-      </section>
-
-
-       <section className="blogSection pb-8 pt-0 py-2 bg-white">
-          <div className="py-5 container">
-            <h2 className="text-[20px] font-[600] mb-4">From The Blog</h2>
-              <Swiper
-                      slidesPerView={3}
-                      spaceBetween={10}
-                      navigation
-                      modules={[Navigation]}
-                      className="blogSlider"
-                      // breakpoints={{
-                      //   320: { slidesPerView: 2 },
-                      //   640: { slidesPerView: 4 },
-                      //   1024: { slidesPerView: 6 },
-                      //   1280: { slidesPerView: 8 },
-                      // }}
-                    >
-                      <SwiperSlide>
-                        <BlogItem/>
-
-                      </SwiperSlide>
-
-                    </Swiper>
-
-
+      {/* ===== Offer Section ===== */}
+      <section className="py-6">
+        <div className="container flex flex-col lg:flex-row gap-5">
+          {/* Main Offer Slider */}
+          <div className="w-full lg:w-[70%]">
+            <OfferSlider />
           </div>
-       </section>
+
+          {/* Side Banners */}
+          <div className="w-full lg:w-[30%] flex flex-col gap-5 items-center justify-between">
+            <OfferBannerSlider link='/' info="right" title ='Footwear' price="$99.99" image="/bannerPhoto.jpg" />
+            <OfferBannerSlider link='/' info="left" title ='Phone' price="$98.00" image="/bannerphoto2.jpg" />
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Free Shipping Section ===== */}
+
+              <FreeShipping />
+
+      {/* ===== Latest Products Section ===== */}
+      <section className="py-6 bg-white">
+        <div className="container">
+          <h2 className="text-[20px] font-[600] mb-4">Latest Products</h2>
+          <ProductsSlider items={6} />
+        </div>
+
+        <div className="container mt-4">
+          <AdsBannerSlider items={4} />
+        </div>
+      </section>
+
+      {/* ===== Featured Products Section ===== */}
+      <section className="py-6 bg-white">
+        <div className="container">
+          <h2 className="text-[20px] font-[600] mb-4">Featured Products</h2>
+          <ProductsSlider items={6} />
+        </div>
+
+        <div className="container mt-4">
+          <AdsBannerSlider items={2} />
+        </div>
+      </section>
+
+      {/* ===== Blog Section ===== */}
+      <section className="py-6 bg-white">
+        <div className="container">
+          <h2 className="text-[20px] font-[600] mb-4">From The Blog</h2>
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={20}
+            navigation
+            modules={[Navigation]}
+            className="blogSlider"
+            breakpoints={{
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+              1280: { slidesPerView: 4 },
+            }}
+          >
+            {[1, 2, 3, 4].map((_, index) => (
+              <SwiperSlide key={index}>
+                <BlogItem />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </section>
+
+      {/* ===== Footer ===== */}
+      <Footer />
     </>
   );
 };

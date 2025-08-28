@@ -1,8 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { Link } from "react-router-dom";
-
 import HomeSlider from "../components/HomeSlider/HomeSlider";
 import CatSlider from "../components/CatSlider/CatSlider";
 import CategoriesTabs from "../components/CategoriesTabs/CategoriesTabs";
@@ -10,13 +8,16 @@ import OfferSlider from "../components/OfferSlider/OfferSlider";
 import OfferBannerSlider from "../components/OfferBannerSlider/OfferBannerSlider";
 import FreeShipping from "../components/FreeShipping/FreeShipping";
 import ProductsSlider from "../components/ProductsSlider/ProductsSlider";
-import AdsBannerSlider from "../components/AdsBannerSlider/AdsBannerSlider";
+
 import BlogItem from "../components/BlogItem/BlogItem";
 import Footer from "../components/Footer/Footer";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import AdsBanner from "../components/AdsBanner/AdsBanner";
+import AdsBannerSlider from "../components/AdsBannerSlider/AdsBannerSlider";
+
 
 const Home: React.FC = () => {
   return (
@@ -56,7 +57,7 @@ const Home: React.FC = () => {
         </div>
 
         <div className="container mt-4">
-          <AdsBannerSlider items={4} />
+          <AdsBanner items={4}/>
         </div>
       </section>
 
@@ -68,7 +69,8 @@ const Home: React.FC = () => {
         </div>
 
         <div className="container mt-4">
-          <AdsBannerSlider items={2} />
+          {/* <AdsBanner items={4} /> */}
+          <AdsBannerSlider items={4}/>
         </div>
       </section>
 
@@ -77,18 +79,18 @@ const Home: React.FC = () => {
         <div className="container">
           <h2 className="text-[20px] font-[600] mb-4">From The Blog</h2>
           <Swiper
-            slidesPerView={1}
+            slidesPerView={3}
             spaceBetween={20}
             navigation
             modules={[Navigation]}
             className="blogSlider"
             breakpoints={{
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-              1280: { slidesPerView: 4 },
+              640: { slidesPerView: 1 },
+              1024: { slidesPerView: 2 },
+              1280: { slidesPerView: 3 },
             }}
           >
-            {[1, 2, 3, 4].map((_, index) => (
+            {[1, 2, 3].map((_, index) => (
               <SwiperSlide key={index}>
                 <BlogItem />
               </SwiperSlide>

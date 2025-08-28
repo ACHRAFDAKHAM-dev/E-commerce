@@ -258,3 +258,8 @@ footer form::placeholder {
 .swiper-button-next:hover::after {
   color: #fff !important;
 }
+
+
+.MuiCheckbox-root {
+  padding: 6px !important;
+}

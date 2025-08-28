@@ -4,7 +4,7 @@ export type Category = {
 };
 
 
-export const Categories: Category[] = [
+export  const Categories: Category[] = [
   { id: 1, name: "Fashion" },
   { id: 2, name: "Electronics" },
   { id: 3, name: "Bags" },
@@ -14,3 +14,4 @@ export const Categories: Category[] = [
   { id: 7, name: "wellness" },
   { id: 8, name: "Jewellery" },
 ];
+

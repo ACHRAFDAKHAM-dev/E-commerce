@@ -4,7 +4,7 @@ import { RiMenu2Fill } from "react-icons/ri";
 import { LiaAngleDownSolid } from "react-icons/lia";
 import { Link, Link as RouterLink } from "react-router-dom";
 import { GoRocket } from "react-icons/go";
-import CategoryPanel from "./CategoryPanel";
+import CategoryPanel from "./CategoryPanel/CategoryPanel";
 
 interface CategoryItem {
   id: number;

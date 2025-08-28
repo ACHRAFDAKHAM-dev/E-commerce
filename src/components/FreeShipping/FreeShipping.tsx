@@ -1,8 +1,8 @@
 import React from "react";
 import { LiaShippingFastSolid } from "react-icons/lia";
-import AdsBannerSlider from "../AdsBannerSlider/AdsBannerSlider";
-import OfferBannerSlider from "../OfferBannerSlider/OfferBannerSlider";
 
+import AdsBannerSlider from "../AdsBanner/AdsBanner";
+import AdsBannerSliderV from "../AdsBannerSliderV/AdsBannerSliderV";
 
 
 
@@ -32,16 +32,18 @@ const FreeShipping: React.FC = () => {
           <div className="px-6 border-l border-gray-300">
             <p className="text-2xl font-bold text-red-600">
               - Only $200
+         
             </p>
           </div>
             
           
         </div>
       </div>
-      <div className="container">
-        
-        <AdsBannerSlider items={4}/>
-      </div>
+      <div className="container pt-12">
+       {/* <AdsBannerSlider items={4}/> */}
+
+       <AdsBannerSliderV items={4}/>
+          </div>
     </section>
   );
 }

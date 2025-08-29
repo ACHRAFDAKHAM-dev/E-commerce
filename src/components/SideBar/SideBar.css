@@ -18,3 +18,18 @@
 .ReactCollapse--collapse {
     transition: height .4s;
 }
+
+.range-slider {
+    height: 3px !important;
+}
+
+.range-slider .range-slider__thumb {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+.range-slider .range-slider__thumb, .range-slider .range-slider__range  {
+    @apply bg-primary-color !important;
+}
+
+
